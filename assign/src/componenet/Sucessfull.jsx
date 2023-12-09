@@ -1,8 +1,13 @@
 import React from 'react'
+import Logo from "../assets/logo.png"
 
 const Sucessfull = () => {
   return (
-    <div>Sucessfull</div>
+    <div>
+    <img src={Logo}/>
+    </div>
+
+
   )
 }
 

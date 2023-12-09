@@ -1,38 +1,22 @@
-import React, { useState } from "react";
-import Logo from "../assets/logo.png";
+import React from "react";
 
-
-const Login = () => {
-  const [fullName, setFullName] = useState("");
-  const [phoneNo, setPhoneNo] = useState("");
-  const [country, setCountry] = useState("");
+const LoginPage = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [showPassword, setShowPassword] = useState(false);
-  const [login, setLogin] = useState(true);
-
-  const countries = [
-    "Select Country",
-    "USA",
-    "Canada",
-    "UK",
-    "Australia",
-    "India",
-  ]; // Add more countries as needed
+  // const [login, setLogin] = useState(true);
 
   const newUser = {
-    name: fullName,
     email: email,
-    phone: phoneNo,
+
     password: password,
-    country: country,
   };
 
   const handlePostData = async () => {
     const response = await fetch("https://hiring-test.a2dweb.com/create-user", {
       method: "POST",
       headers: {
-        'content-type': "application/json",
+        "content-type": "application/json",
       },
       body: JSON.stringify(newUser),
     });
@@ -45,18 +29,6 @@ const Login = () => {
   };
   const handleToggleSignUp = () => {
     setLogin(true);
-  };
-
-  const handleFullNameChange = (e) => {
-    setFullName(e.target.value);
-  };
-
-  const handlePhoneNoChange = (e) => {
-    setPhoneNo(e.target.value);
-  };
-
-  const handleCountryChange = (e) => {
-    setCountry(e.target.value);
   };
 
   const handleEmailChange = (e) => {
@@ -73,61 +45,12 @@ const Login = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-
-    // // Perform login logic with the collected data
-    // console.log("Full Name:", fullName);
-    // console.log("Phone No:", phoneNo);
-    // console.log("Country:", country);
-    // console.log("Email:", email);
-    // console.log("Password:", password);
-
-    // You can add your login logic here, such as making an API request to authenticate the user
   };
 
   return (
     <div>
       <img src={Logo} className="mb-7" />
       <form onSubmit={handleSubmit}>
-        <div>
-          {login && (
-            <input
-              type="text"
-              placeholder="Full Name"
-              value={fullName}
-              onChange={handleFullNameChange}
-              required
-              className="m-3 p-3 border-[1px] border-gray-300 rounded-2xl w-full"
-            />
-          )}
-        </div>
-        <div>
-          {login && (
-            <input
-              type="tel"
-              placeholder="Phone No"
-              value={phoneNo}
-              onChange={handlePhoneNoChange}
-              required
-              className="m-3 p-3 border-[1px] border-gray-300 rounded-2xl w-full"
-            />
-          )}
-        </div>
-        <div>
-          {login && (
-            <select
-              value={country}
-              onChange={handleCountryChange}
-              required
-              className="m-3 p-3 border-[1px] border-gray-300 rounded-2xl w-full"
-            >
-              {countries.map((c, index) => (
-                <option key={index} value={c}>
-                  {c}
-                </option>
-              ))}
-            </select>
-          )}
-        </div>
         <div>
           <input
             type="email"
@@ -180,4 +103,4 @@ const Login = () => {
   );
 };
 
-export default Login;
+export default LoginPage;
