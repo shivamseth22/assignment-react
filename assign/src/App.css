@@ -1,9 +1,10 @@
 #root {
   max-width: 414px;
-  max-height: 896px;
+  min-height: 796px;
   margin: 0 auto;
   padding: 2rem;
   text-align: center;
-  border: 2px solid red;
+  background: white;
+  border-radius: 20px;
 }
 
