@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useState } from "react";
+import Logo from "../assets/logo.png";
 
 const LoginPage = () => {
   const [email, setEmail] = useState("");
@@ -82,23 +83,15 @@ const LoginPage = () => {
           className="m-3 mb-24 p-3 border-[1px] border-gray-300 w-full rounded-2xl bg-gray-300"
           onClick={handlePostData}
         >
-          {login ? "Sign up" : "Login"}
+          Login
         </button>
         {/* <input type="checkbox">Remember Me</input> */}
       </form>
 
-      {login && (
-        <p onClick={handleTogglelogin}>
-          Already have an Account?{" "}
-          <span className="text-blue-800 font-bold">Login</span>
-        </p>
-      )}
-      {!login && (
-        <p onClick={handleToggleSignUp}>
-          Do not have an Account?{" "}
-          <span className="text-blue-800 font-bold">Sign Up</span>
-        </p>
-      )}
+      <p>
+        Do not have an Account?{" "}
+        <span className="text-blue-800 font-bold">Sign Up</span>
+      </p>
     </div>
   );
 };
