@@ -4,11 +4,8 @@ import { Link, useNavigate } from "react-router-dom";
 
 const LoginPage = () => {
   const [showPassword, setShowPassword] = useState(false);
-  const [loginError, setLoginError] = useState(false); // Assuming loginError should be initialized as false
-
   const [loginData, setLoginData] = useState({
     email: "",
-
     password: "",
   });
 
@@ -34,7 +31,6 @@ const LoginPage = () => {
       localStorage.setItem("myToken", JSON.stringify(data.token));
       localStorage.setItem("liveWeather", JSON.stringify(data.liveWeather));
       navigate("/");
-
     }
   };
 

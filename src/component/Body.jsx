@@ -30,12 +30,12 @@ const Body = () => {
     {
       path: "/home",
       element: <Home/>,
-      children:[
-        {
-          path:"/view-other-forecast:id",
-          element:<Detail/>
-        }
-      ]
+      // children:[
+      //   {
+      //     path:"/detail",
+      //     element:<Detail/>
+      //   }
+      // ]
     },
     {
       path: "/sucessfull",

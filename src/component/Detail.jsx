@@ -1,25 +1,32 @@
-import React, { useEffect } from "react";
-import { Link, useParams } from "react-router-dom";
+import React, { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 
 const Detail = () => {
-  const weatherDetails = async () => {
-    const { id } = useParams();
-    const response = await fetch(
-      `https://hiring-test.a2dweb.com/view-small-forecast/${id}`,
-      {
-        method: "POST",
-        headers: {
-          "content-type": "application/json",
-        },
-        body: JSON.stringify(loginData),
-      }
-    );
-    const data = await response.json();
-    console.log(data);
-  };
+  const [myId, setMyId] = useState(null);
+  const [localLiveData, setLocalLiveData] = useState(null);
+
+  console.log(localLiveData);
+
   useEffect(() => {
+    const liveData = localStorage.getItem("liveWeather");
+    const parsedLiveData = JSON.parse(liveData);
+    // console.log(parsedLiveData);
+    setLocalLiveData(parsedLiveData);
+    setMyId(parsedLiveData?.cityId);
+  }, []);
+
+  useEffect(() => {
+    const weatherDetails = async () => {
+      if (myId) {
+        const response = await fetch(`https://hiring-test.a2dweb.com/view-small-forecast/${myId}`);
+        const data = await response.json();
+        console.log(data);
+      }
+    };
+
     weatherDetails();
-  }, [id]);
+  }, [myId]);
+
   return (
     <div className="flex flex-col gap-7 p-[3rem]">
       <Link to="/home">
@@ -28,7 +35,7 @@ const Detail = () => {
       </Link>
       <div className="flex justify-around">
         <p>Today</p>
-        <p> sep 12</p>
+        <p>sep 12</p>
       </div>
       <div>data</div>
       <div className="flex justify-around">
