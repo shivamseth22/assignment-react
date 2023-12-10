@@ -4,36 +4,30 @@ import { Link } from "react-router-dom";
 const Detail = () => {
   const [myId, setMyId] = useState(null);
   const [localLiveData, setLocalLiveData] = useState(null);
-  const [myToken, setMyToken] = useState("");
-  console.log(myToken);
 
-  console.log(localLiveData);
+  const weatherDetails = async () => {
+    if (myId) {
+      const token =JSON.parse(localStorage.getItem("myToken"));
+      const response = await fetch(
+        `https://hiring-test.a2dweb.com/view-small-forecast/${myId}`,
+        {
+          headers: {
+            Accept: "application/json",
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${token}`,
+          },
+        }
+      );
+      const data = await response.json();
+      console.log(data);
+    }
+  };
 
   useEffect(() => {
     const liveData = localStorage.getItem("liveWeather");
-    const token = localStorage.getItem("myToken");
-    setMyToken(token);
-
     const parsedLiveData = JSON.parse(liveData);
-
     setLocalLiveData(parsedLiveData);
     setMyId(parsedLiveData?.cityId);
-  }, []);
-
-  useEffect(() => {
-    const weatherDetails = async () => {
-      if (myId) {
-        console.log(myToken);
-        const headers = { Authorization: myToken};
-        const response = await fetch(
-          `https://hiring-test.a2dweb.com/view-small-forecast/${myId}`,
-          headers
-        );
-        const data = await response.json();
-        console.log(data);
-      }
-    };
-
     weatherDetails();
   }, [myId]);
 
