@@ -8,3 +8,7 @@
   border-radius: 20px;
 }
 
+.nopadding{
+  padding: 0px !important ;
+}
+

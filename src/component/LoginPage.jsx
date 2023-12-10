@@ -7,11 +7,9 @@ const LoginPage = () => {
   const [loginError, setLoginError] = useState(false); // Assuming loginError should be initialized as false
 
   const [loginData, setLoginData] = useState({
-    name: "",
     email: "",
-    phone: "",
+
     password: "",
-    country: "",
   });
 
   const handleTogglePassword = () => {
@@ -31,11 +29,9 @@ const LoginPage = () => {
     console.log(data.status);
 
     if (data.status) {
-      navigate("/login");
-    } else {
-      setLoginError(data.message);
+      localStorage.setItem("userDetails", JSON.stringify(data.Data.token));
+      navigate("/home");
     }
-    console.log(data);
   };
 
   const handleInputChange = (e) => {
@@ -45,7 +41,7 @@ const LoginPage = () => {
   };
 
   return (
-    <div>
+    <div className="">
       <img src={Logo} className="mb-7" />
       <form onSubmit={handleSubmit}>
         <div>
@@ -85,7 +81,7 @@ const LoginPage = () => {
         </button>
       </form>
 
-      <Link to="/login">
+      <Link to="/signup">
         <p>
           Do not have an Account?{" "}
           <span className="text-blue-800 font-bold">Sign Up</span>

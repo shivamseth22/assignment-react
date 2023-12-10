@@ -56,7 +56,7 @@ const Login = () => {
     
 
     if(data.status){
-      navigate("/loginpage")
+      navigate("/sucessfull")
     }else{
       setSignUpError(data.message)
     }
