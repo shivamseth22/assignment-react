@@ -1,6 +1,6 @@
 import React, { useEffect, useRef } from "react";
 
-const City = ({cityData , SetCityData}) => {
+const City = ({cityData , setCityData}) => {
   const myRef = useRef(null);
   useEffect(()=>{
     const eventHandler = (e) =>{
@@ -9,7 +9,7 @@ const City = ({cityData , SetCityData}) => {
         myRef.current &&
         !myRef.current.contains(e.target)
       ) {
-        SetCityData(false)
+        setCityData(false)
       }
     }
     document.addEventListener('mousedown', eventHandler)

@@ -1,13 +1,14 @@
 import React, { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import City from "./City";
+import Icon from "./Icon";
 
 const Home = () => {
   const [token, setToken] = useState(null);
   const navigate = useNavigate();
   const [localLiveData, setLocalLiveData] = useState();
   const [showModel, setShowModal] = useState(false);
-  const [cityData , setCityData] = useState(false);
+  const [cityData, setCityData] = useState(false);
   // console.log(localLiveData);
 
   useEffect(() => {
@@ -29,7 +30,7 @@ const Home = () => {
 
   useEffect(() => {
     checking();
-  },[]);
+  }, []);
 
   const MyModel = () => {
     return (
@@ -38,56 +39,72 @@ const Home = () => {
         <h1 className="text-lg font-bold">Log out</h1>
         <p className="my-2">Are you sure want to logout from app</p>
         <div className="flex">
-          <button onClick={()=>navigate("/signup")} className="bg-red-300 m-2 p-2 w-full rounded-2xl" >Logout</button>
-          <button onClick={CloseModel} className="bg-red-300 m-2 p-2 w-full rounded-2xl">Cancel</button>
+          <button
+            onClick={() => navigate("/signup")}
+            className="bg-red-300 m-2 p-2 w-full rounded-2xl"
+          >
+            Logout
+          </button>
+          <button
+            onClick={CloseModel}
+            className="bg-red-300 m-2 p-2 w-full rounded-2xl"
+          >
+            Cancel
+          </button>
         </div>
       </div>
     );
   };
-  const CloseModel = ()=>setShowModal(false);
+  const CloseModel = () => setShowModal(false);
   // localStorage.setItem("liveWeather", JSON.stringify(data.liveWeather));
 
-
   return (
-    <div className=" flex flex-col gap-7 p-[2rem] bg-blue-400 h-[800px] text-white" >
+    <div className=" flex flex-col gap-7 p-[2rem] bg-blue-400 h-[800px] text-white">
       <div className="flex justify-between ">
-        
-          <h1 className="text-xl font-bold" onClick={()=>setCityData(true)}>Semarang</h1>
-      {cityData&& <City  cityData={cityData} setCityData={setCityData}/>}
-        <p className="" onClick={()=>setShowModal(true)}>LO</p>
+        <h1 className="text-xl font-bold" onClick={() => setCityData(true)}>
+          Semarang
+        </h1>
+        {cityData && <City cityData={cityData} setCityData={setCityData} />}
+        <p className="" onClick={() => setShowModal(true)}>
+          LO
+        </p>
         {showModel && <MyModel />}
       </div>
-      <div>Img</div>
-      <div className="">
-        <div className="absolute mt-36 mx-auto min-w-[350px] ">
-          <p></p>
-          <h1></h1>
-          <p></p>
-          <div className="flex justify-around m-2 p-2">
+      
+       
+      <div className="flex justify-center">
+      <div>
+      <Icon condition={"mainCloud"}/>
+      </div>
+        <div className="absolute mt-36 mx-auto min-w-[350px] flex flex-col  ">
+          <p>Today, {localLiveData?.time}</p>
+          <h1 className="text-8xl">{localLiveData?.temperature}</h1>
+          <p>{localLiveData?.condition}</p>
+          <div className="flex justify-evenly m-2 p-2">
             <div>Time</div>
             <div>{localLiveData?.time}</div>
           </div>
-          <div className="flex justify-around m-2 p-2">
+          <div className="flex justify-evenly m-2 p-2">
             <div>Temprature</div>
             <div>{localLiveData?.temperature}</div>
           </div>
-          <div className="flex justify-around m-2 p-2">
+          <div className="flex justify-evenly m-2 p-2">
             <div>Max</div>
             <div>{localLiveData?.maxTemperature}</div>
           </div>
-          <div className="flex justify-around m-2 p-2">
+          <div className="flex justify-evenly m-2 p-2">
             <div>Min</div>
             <div>{localLiveData?.minTemperature}</div>
           </div>
-          <div className="flex justify-around m-2 p-2">
+          <div className="flex justify-evenly m-2 p-2">
             <div>Condition</div>
             <div>windSpeed</div>
           </div>
-          <div className="flex justify-around m-2 p-2">
+          <div className="flex justify-evenly m-2 p-2">
             <div>Humidity</div>
             <div>{localLiveData?.humidity}</div>
           </div>
-          <div className="flex justify-around m-2 p-2">
+          <div className="flex justify-evenly m-2 p-2">
             <div></div>
             <div></div>
           </div>
