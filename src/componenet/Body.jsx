@@ -1,12 +1,10 @@
 import React from "react";
-import Login from "./SignUp";
 import LoginPage from "./LoginPage";
 import Sucessfull from "./Sucessfull";
-import AfterSplash from "./Onboard";
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
-import Home from "./Home";
 import Frame from "./Frame";
 import Onboard from "./Onboard";
+import SignUp from "./SignUp"
 
 const Body = () => {
   const appRouter = createBrowserRouter([
@@ -15,8 +13,8 @@ const Body = () => {
       element: <Onboard />,
     },
     {
-      path: "/create-user",
-      element: <LoginPage/>,
+      path: "/signup",
+      element: <SignUp/>,
     },
     {
       path: "/loginPage",
