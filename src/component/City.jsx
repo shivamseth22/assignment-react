@@ -2,7 +2,11 @@ import React from 'react'
 
 const City = () => {
   return (
-    <div>City</div>
+    <div>
+      <div>
+        <select name="" id=""></select>
+      </div>
+    </div>
   )
 }
 

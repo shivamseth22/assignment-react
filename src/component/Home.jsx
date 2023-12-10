@@ -1,6 +1,29 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 const Home = () => {
+  const [token, setToken] = useState(null);
+  const navigate = useNavigate();
+
+  const hom = () =>{
+
+  }
+
+  const checking = () => {
+    // e.preventDefault();
+    const token = localStorage.getItem("myToken");
+    console.log(token);
+    if (token) {
+      setToken(token);
+    } else {
+      navigate("/onboard");
+    }
+  };
+
+  useEffect(() => {
+    checking();
+  }, []);
+
   return (
     <div className=" flex flex-col gap-7">
       <div className="flex justify-between">
@@ -16,7 +39,7 @@ const Home = () => {
           <div>Time</div>
           <div>4131</div>
         </div>
-        <div className="flex justify-around m-2 p-2" >
+        <div className="flex justify-around m-2 p-2">
           <div>Temprature</div>
           <div>24</div>
         </div>

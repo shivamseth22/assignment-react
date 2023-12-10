@@ -12,7 +12,11 @@ const Body = () => {
   const appRouter = createBrowserRouter([
     {
       path: "/",
-      element: <Onboard />,
+      element: <Home />,
+    },
+    {
+      path: "/onboard",
+      element: <Onboard/>,
     },
     {
       path: "/signup",

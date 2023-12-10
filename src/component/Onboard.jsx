@@ -28,8 +28,8 @@ const Onboard = () => {
   return  (
 
     
-    <div className='min-w-[350px] '>
-      <div className='bg-blue-300 mt-96 pt-5 pb-8  rounded-xl'>
+    <div className=' bg-blue-300 h-[100vh] flex items-end pb-4'>
+      <div className='  rounded-xl bg-white '>
           <h1 className='text-lg font-bold'>Explore global map of wind, weather, and ocean conditons</h1>
           <p className='flex-wrap'>planning your trip become more easier with ideate weather app. ypu can instantly see the whole word weather few second</p>
           <button onClick={checking} className='bg-white m-2  mt-10 p-3 w-48 rounded-2xl'>Get Started</button>

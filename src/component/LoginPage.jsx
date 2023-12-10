@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import Logo from "../assets/logo.png";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const LoginPage = () => {
   const [showPassword, setShowPassword] = useState(false);
@@ -11,6 +11,8 @@ const LoginPage = () => {
 
     password: "",
   });
+
+  const navigate = useNavigate();
 
   const handleTogglePassword = () => {
     setShowPassword(!showPassword);
@@ -26,12 +28,12 @@ const LoginPage = () => {
       body: JSON.stringify(loginData),
     });
     const data = await response.json();
-    console.log(data.status);
+    console.log(data);
 
-    if (data.status) {
-      const okk = localStorage.setItem("userDetails", JSON.stringify(data.Data.token));
-      navigate("/home");
-      console.log(okk);
+    if (data.token) {
+      localStorage.setItem("myToken", JSON.stringify(data.token));
+      navigate("/");
+
     }
   };
 
