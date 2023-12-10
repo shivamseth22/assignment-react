@@ -3,51 +3,52 @@ import Logo from "../assets/logo.png";
 import { Link } from "react-router-dom";
 
 const LoginPage = () => {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+  
   const [showPassword, setShowPassword] = useState(false);
-  // const [login, setLogin] = useState(true);
+  const [loginError, setLoginError] = useState(true);
 
-  const newUser = {
-    email: email,
+  const [loginData, setloginData] = useState(
+    {
+      name: "",
+      email: "",
+      phone: "",
+      password: "",
+      country: "",
+    }
+  );
 
-    password: password,
-  };
-
-  const handlePostData = async () => {
-    const response = await fetch("https://hiring-test.a2dweb.com/create-user", {
-      method: "POST",
-      headers: {
-        "content-type": "application/json",
-      },
-      body: JSON.stringify(newUser),
-    });
-    const data = await response.json();
-    console.log(data.status);
-  };
-
-  const handleTogglelogin = () => {
-    setLogin(false);
-  };
-  const handleToggleSignUp = () => {
-    setLogin(true);
-  };
-
-  const handleEmailChange = (e) => {
-    setEmail(e.target.value);
-  };
-
-  const handlePasswordChange = (e) => {
-    setPassword(e.target.value);
-  };
 
   const handleTogglePassword = () => {
     setShowPassword(!showPassword);
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async(e) => {
     e.preventDefault();
+    const response = await fetch("https://hiring-test.a2dweb.com/login", {
+      method: "POST",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify(loginData),
+    });
+    const data = await response.json();
+    console.log(data.status);
+
+    if(data.status){
+      navigate("/login")
+    }else{
+      setLoginError(data.message)
+    }
+    console.log(data);
   };
+  };
+
+  const handleInputChange = (e) => {
+    const { name, value } = e.target;
+    setLoginData((previousData) => ({ ...previousData, [name]: value }));
+    // console.log(name, value);
+  };
+
 
   return (
     <div>
@@ -55,25 +56,27 @@ const LoginPage = () => {
       <form onSubmit={handleSubmit}>
         <div>
           <input
+          name="email"
             type="email"
             placeholder="Email"
             value={email}
-            onChange={handleEmailChange}
+            onChange={}
             required
             className="m-3 p-3 border-[1px] border-gray-300 rounded-2xl w-full"
           />
         </div>
         <div className="relative">
           <input
+          name="password"
             type={showPassword ? "text" : "password"}
             placeholder="Password"
             value={password}
-            onChange={handlePasswordChange}
+            onChange={handleInputChange}
             required
             className="m-3 p-3 border-[1px] border-gray-300 rounded-2xl w-full"
           />
           <span
-            onClick={handleTogglePassword}
+            onClick={handleInputChange}
             className="absolute top-1/2 right-4 transform -translate-y-1/2 cursor-pointer"
           >
             {showPassword ? "👁️" : "👁️"}
@@ -83,7 +86,7 @@ const LoginPage = () => {
         <button
           type="submit"
           className="m-3 mb-24 p-3 border-[1px] border-gray-300 w-full rounded-2xl bg-gray-300"
-          onClick={handlePostData}
+          
         >
           Login
         </button>

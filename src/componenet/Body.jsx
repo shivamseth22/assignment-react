@@ -2,16 +2,17 @@ import React from "react";
 import Login from "./SignUp";
 import LoginPage from "./LoginPage";
 import Sucessfull from "./Sucessfull";
-import AfterSplash from "./AfterSplash";
+import AfterSplash from "./Onboard";
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import Home from "./Home";
 import Frame from "./Frame";
+import Onboard from "./Onboard";
 
 const Body = () => {
   const appRouter = createBrowserRouter([
     {
       path: "/",
-      element: <Home/>,
+      element: <Onboard />,
     },
     {
       path: "/create-user",
