@@ -32,6 +32,7 @@ const LoginPage = () => {
 
     if (data.token) {
       localStorage.setItem("myToken", JSON.stringify(data.token));
+      localStorage.setItem("liveWeather", JSON.stringify(data.liveWeather));
       navigate("/");
 
     }

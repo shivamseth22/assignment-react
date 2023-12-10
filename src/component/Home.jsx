@@ -4,13 +4,21 @@ import { useNavigate } from "react-router-dom";
 const Home = () => {
   const [token, setToken] = useState(null);
   const navigate = useNavigate();
+  const [localLiveData , setLocalLiveData] = useState();
 
-  const hom = () =>{
+  console.log(localLiveData);
 
-  }
+
+
+  useEffect(()=>{
+    const liveData = localStorage.getItem("liveWeather");
+    const parsedLiveData = JSON.parse(liveData); // Parse the JSON
+    console.log(parsedLiveData);
+    setLocalLiveData(parsedLiveData);
+  } , []);
 
   const checking = () => {
-    // e.preventDefault();
+    
     const token = localStorage.getItem("myToken");
     console.log(token);
     if (token) {
@@ -24,9 +32,14 @@ const Home = () => {
     checking();
   }, []);
 
+  // localStorage.setItem("liveWeather", JSON.stringify(data.liveWeather));
+  useEffect(
+   
+  )
+
   return (
-    <div className=" flex flex-col gap-7">
-      <div className="flex justify-between">
+    <div className=" flex flex-col gap-7 p-[2rem] bg-blue-400 h-full text-white">
+      <div className="flex justify-between ">
         <h1>Semarang</h1>
         <p>LO</p>
       </div>
@@ -37,19 +50,19 @@ const Home = () => {
         <p></p>
         <div className="flex justify-around m-2 p-2">
           <div>Time</div>
-          <div>4131</div>
+          <div>{localLiveData?.time}</div>
         </div>
         <div className="flex justify-around m-2 p-2">
           <div>Temprature</div>
-          <div>24</div>
+          <div>{localLiveData?.temperature}</div>
         </div>
         <div className="flex justify-around m-2 p-2">
           <div>Max</div>
-          <div>12</div>
+          <div>{localLiveData?.maxTemperature}</div>
         </div>
         <div className="flex justify-around m-2 p-2">
           <div>Min</div>
-          <div>1</div>
+          <div>{localLiveData?.minTemperature}</div>
         </div>
         <div className="flex justify-around m-2 p-2">
           <div>Condition</div>
@@ -57,7 +70,7 @@ const Home = () => {
         </div>
         <div className="flex justify-around m-2 p-2">
           <div>Humidity</div>
-          <div>54</div>
+          <div>{localLiveData?.humidity}</div>
         </div>
         <div className="flex justify-around m-2 p-2">
           <div></div>

@@ -1,12 +1,14 @@
 import React from 'react'
-import congo from "../assets/congo"
+// import congo from "../assets/congo"
+// import Splashimg from "../assets/Splashimg";
 
 const Splash = () => {
   return (
     <div>
-      <img src={congo} alt="" />
+      {/* <img src={Splashimg} alt="" /> */}
+      <h1>hii</h1>
     </div>
   )
 }
 
-export default Splash
+export default Splash;
