@@ -66,7 +66,7 @@ const Home = () => {
         </h1>
         {cityData && <City cityData={cityData} setCityData={setCityData} />}
         <p className="" onClick={() => setShowModal(true)}>
-          LO
+          <Icon condition={"power"}/>
         </p>
         {showModel && <MyModel />}
       </div>
@@ -77,39 +77,39 @@ const Home = () => {
       <Icon condition={"mainCloud"}/>
       </div>
         <div className="absolute mt-36 mx-auto min-w-[350px] flex flex-col  ">
-          <p>Today, {localLiveData?.time}</p>
-          <h1 className="text-8xl">{localLiveData?.temperature}</h1>
-          <p>{localLiveData?.condition}</p>
-          <div className="flex justify-evenly m-2 p-2">
+          <p className="p-2">Today, {localLiveData?.time}</p>
+          <h1 className="text-8xl p-2 font-semibold">{localLiveData?.temperature}</h1>
+          <p className="text-lg p-2">{localLiveData?.condition}</p>
+          <div className="flex justify-evenly  p-2">
             <div>Time</div>
             <div>{localLiveData?.time}</div>
           </div>
-          <div className="flex justify-evenly m-2 p-2">
+          <div className="flex justify-evenly  p-2">
             <div>Temprature</div>
             <div>{localLiveData?.temperature}</div>
           </div>
-          <div className="flex justify-evenly m-2 p-2">
+          <div className="flex justify-evenly  p-2">
             <div>Max</div>
             <div>{localLiveData?.maxTemperature}</div>
           </div>
-          <div className="flex justify-evenly m-2 p-2">
+          <div className="flex justify-evenly  p-2">
             <div>Min</div>
             <div>{localLiveData?.minTemperature}</div>
           </div>
-          <div className="flex justify-evenly m-2 p-2">
+          <div className="flex justify-evenly  p-2">
             <div>Condition</div>
             <div>windSpeed</div>
           </div>
-          <div className="flex justify-evenly m-2 p-2">
+          <div className="flex justify-evenly  p-2">
             <div>Humidity</div>
             <div>{localLiveData?.humidity}</div>
           </div>
-          <div className="flex justify-evenly m-2 p-2">
+          <div className="flex justify-evenly  p-2">
             <div></div>
             <div></div>
           </div>
           <Link to="/detail">
-            <button className="bg-blue-400 m-3 p-3"> Forecast</button>
+            <button className="m-3 p-3 px-8 bg-white text-blue-700 rounded-xl "> Forecast report</button>
           </Link>
         </div>
       </div>
