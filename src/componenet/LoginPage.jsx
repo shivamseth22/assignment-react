@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import Logo from "../assets/logo.png";
+import { Link } from "react-router-dom";
 
 const LoginPage = () => {
   const [email, setEmail] = useState("");
@@ -78,6 +79,7 @@ const LoginPage = () => {
             {showPassword ? "👁️" : "👁️"}
           </span>
         </div>
+        <Link to="/frame">
         <button
           type="submit"
           className="m-3 mb-24 p-3 border-[1px] border-gray-300 w-full rounded-2xl bg-gray-300"
@@ -85,13 +87,16 @@ const LoginPage = () => {
         >
           Login
         </button>
+        </Link>
         {/* <input type="checkbox">Remember Me</input> */}
       </form>
 
-      <p>
-        Do not have an Account?{" "}
-        <span className="text-blue-800 font-bold">Sign Up</span>
-      </p>
+      <Link to="/login">
+        <p>
+          Do not have an Account?{" "}
+          <span className="text-blue-800 font-bold">Sign Up</span>
+        </p>
+      </Link>
     </div>
   );
 };

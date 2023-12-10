@@ -1,8 +1,11 @@
 import React from 'react'
+import congo from "../assets/congo"
 
 const Splash = () => {
   return (
-    <div>Splash</div>
+    <div>
+      <img src={congo} alt="" />
+    </div>
   )
 }
 
