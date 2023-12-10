@@ -1,12 +1,14 @@
 import React, { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
+import City from "./City";
 
 const Home = () => {
   const [token, setToken] = useState(null);
   const navigate = useNavigate();
   const [localLiveData, setLocalLiveData] = useState();
-
-  console.log(localLiveData);
+  const [showModel, setShowModal] = useState(false);
+  const [cityData , setCityData] = useState(false);
+  // console.log(localLiveData);
 
   useEffect(() => {
     const liveData = localStorage.getItem("liveWeather");
@@ -27,16 +29,33 @@ const Home = () => {
 
   useEffect(() => {
     checking();
-  }, []);
+  },[]);
 
+  const MyModel = () => {
+    return (
+      <div className="bg-white p-12 min-w-[300px] absolute text-black z-10 mt-20  rounded-xl">
+        <img src="" alt="img" className="m-5 p-5" />
+        <h1 className="text-lg font-bold">Log out</h1>
+        <p className="my-2">Are you sure want to logout from app</p>
+        <div className="flex">
+          <button onClick={()=>navigate("/signup")} className="bg-red-300 m-2 p-2 w-full rounded-2xl" >Logout</button>
+          <button onClick={CloseModel} className="bg-red-300 m-2 p-2 w-full rounded-2xl">Cancel</button>
+        </div>
+      </div>
+    );
+  };
+  const CloseModel = ()=>setShowModal(false);
   // localStorage.setItem("liveWeather", JSON.stringify(data.liveWeather));
 
+
   return (
-    <div className=" flex flex-col gap-7 p-[2rem] bg-blue-400 h-[800px] text-white">
+    <div className=" flex flex-col gap-7 p-[2rem] bg-blue-400 h-[800px] text-white" >
       <div className="flex justify-between ">
-        <Link to="/city"><h1 className="text-xl font-bold">Semarang</h1>
-       </Link>
-         <p>LO</p>
+        
+          <h1 className="text-xl font-bold" onClick={()=>setCityData(true)}>Semarang</h1>
+      {cityData&& <City/>}
+        <p className="" onClick={()=>setShowModal(true)}>LO</p>
+        {showModel && <MyModel />}
       </div>
       <div>Img</div>
       <div className="">
@@ -73,9 +92,8 @@ const Home = () => {
             <div></div>
           </div>
           <Link to="/detail">
-          <button className="bg-blue-400 m-3 p-3" > Forecast</button>
+            <button className="bg-blue-400 m-3 p-3"> Forecast</button>
           </Link>
-         
         </div>
       </div>
     </div>
