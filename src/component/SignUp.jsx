@@ -142,7 +142,7 @@ const Login = () => {
               }
         <button
           type="submit"
-          className="m-3 mb-24 p-3 border-[1px] border-gray-300 w-full rounded-2xl bg-gray-300"
+          className="m-3 mb-24 p-3 border-[1px] border-gray-300 w-full rounded-2xl bg-blue-500 text-white font-bold"
         >
           Sign Up
         </button>
@@ -153,7 +153,7 @@ const Login = () => {
       <Link to="/loginPage">
         <p onClick={handleToggleSignUp}>
           Already have an Account?{" "}
-          <span className="text-blue-800 font-bold">Sign Up</span>
+          <span className="text-blue-800 font-bold">Login</span>
         </p>
       </Link>
     </div>

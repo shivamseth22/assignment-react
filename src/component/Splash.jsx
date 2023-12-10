@@ -4,9 +4,11 @@ import React from 'react'
 
 const Splash = () => {
   return (
-    <div>
+    <div className='pt-60'>
       {/* <img src={Splashimg} alt="" /> */}
-      <h1>hii</h1>
+      <h1 className='text-8xl font-bold tracking-tighter'>A2D</h1>
+      <p className='font-bold'>An Innovative Concept</p>
+      <h1 className='text-5xl font-bold text-blue-600'>Forecasting</h1>
     </div>
   )
 }
