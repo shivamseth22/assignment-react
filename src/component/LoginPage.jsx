@@ -29,8 +29,9 @@ const LoginPage = () => {
     console.log(data.status);
 
     if (data.status) {
-      localStorage.setItem("userDetails", JSON.stringify(data.Data.token));
+      const okk = localStorage.setItem("userDetails", JSON.stringify(data.Data.token));
       navigate("/home");
+      console.log(okk);
     }
   };
 

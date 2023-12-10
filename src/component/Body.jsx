@@ -5,6 +5,8 @@ import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import Frame from "./Frame";
 import Onboard from "./Onboard";
 import SignUp from "./SignUp"
+import Home from "./Home";
+import Detail from "./Detail";
 
 const Body = () => {
   const appRouter = createBrowserRouter([
@@ -21,8 +23,8 @@ const Body = () => {
       element: <LoginPage />,
     },
     {
-      path: "/login",
-      element: <LoginPage/>,
+      path: "/home",
+      element: <Home/>,
     },
     {
       path: "/sucessfull",
@@ -31,6 +33,10 @@ const Body = () => {
     {
       path: "/frame",
       element: <Frame/>,
+    },
+    {
+      path: "/detail",
+      element: <Detail/>,
     },
   ]);
   return (
