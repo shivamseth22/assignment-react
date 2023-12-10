@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 const Detail = () => {
   const [myId, setMyId] = useState(null);
   const [localLiveData, setLocalLiveData] = useState(null);
-  const [myToken , setMyToken]  =useState("");
+  const [myToken, setMyToken] = useState("");
   console.log(myToken);
 
   console.log(localLiveData);
@@ -12,11 +12,10 @@ const Detail = () => {
   useEffect(() => {
     const liveData = localStorage.getItem("liveWeather");
     const token = localStorage.getItem("myToken");
-    console.log(token);
-    const parsedTokenData = JSON.parse(token);
-    setMyToken(parsedTokenData);
+    setMyToken(token);
+
     const parsedLiveData = JSON.parse(liveData);
-    // console.log(parsedLiveData);
+
     setLocalLiveData(parsedLiveData);
     setMyId(parsedLiveData?.cityId);
   }, []);
@@ -24,8 +23,12 @@ const Detail = () => {
   useEffect(() => {
     const weatherDetails = async () => {
       if (myId) {
-        const headers = { 'Authorization': 'myToken' };
-        const response = await fetch(`https://hiring-test.a2dweb.com/view-small-forecast/${myId}`,{headers});
+        console.log(myToken);
+        const headers = { Authorization: myToken};
+        const response = await fetch(
+          `https://hiring-test.a2dweb.com/view-small-forecast/${myId}`,
+          headers
+        );
         const data = await response.json();
         console.log(data);
       }
