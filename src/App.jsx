@@ -15,7 +15,7 @@ function App() {
       setTimeout(() => {
         setShowSplashscreen(false);
         sessionStorage.setItem("showedSplashscreen", JSON.stringify(true));
-      }, 2000);
+      }, 3000);
     }, []);
   return showSplashscreen ? (
     <Splash/>

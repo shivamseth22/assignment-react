@@ -53,7 +53,7 @@ const Home = () => {
       <div className="flex justify-between ">
         
           <h1 className="text-xl font-bold" onClick={()=>setCityData(true)}>Semarang</h1>
-      {cityData&& <City/>}
+      {cityData&& <City  cityData={cityData} setCityData={setCityData}/>}
         <p className="" onClick={()=>setShowModal(true)}>LO</p>
         {showModel && <MyModel />}
       </div>
