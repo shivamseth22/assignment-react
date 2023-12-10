@@ -1,5 +1,8 @@
 import React, { useState } from "react";
 import Logo from "../assets/logo.png";
+import { Link } from "react-router-dom";
+
+import Home from "./Home";
 
 const Login = () => {
   const [fullName, setFullName] = useState("");
@@ -36,12 +39,10 @@ const Login = () => {
       body: JSON.stringify(newUser),
     });
     const data = await response.json();
-    console.log(data.status);
+    console.log(data);
   };
 
-  const handleTogglelogin = () => {
-    setLogin(false);
-  };
+  
   const handleToggleSignUp = () => {
     setLogin(true);
   };
@@ -148,10 +149,12 @@ const Login = () => {
         {/* <input type="checkbox">Remember Me</input> */}
       </form>
 
-      <p onClick={handleToggleSignUp}>
-        Do not have an Account?{" "}
-        <span className="text-blue-800 font-bold">Sign Up</span>
-      </p>
+      <Link to="/home">
+        <p onClick={handleToggleSignUp}>
+          Already have an Account?{" "}
+          <span className="text-blue-800 font-bold">Sign Up</span>
+        </p>
+      </Link>
     </div>
   );
 };
