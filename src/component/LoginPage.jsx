@@ -45,7 +45,7 @@ const LoginPage = () => {
   };
 
   return (
-    <div className="">
+    <div className="p-[3rem]">
       <img src={Logo} className="mb-7" />
       <form onSubmit={handleSubmit}>
         <div>
@@ -79,7 +79,7 @@ const LoginPage = () => {
 
         <button
           type="submit"
-          className="m-3 mb-24 p-3 border-[1px] border-gray-300 w-full rounded-2xl bg-gray-300"
+          className="m-3 mb-48 p-3 border-[1px] border-gray-300 w-full rounded-2xl bg-gray-300"
         >
           Login
         </button>

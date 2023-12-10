@@ -70,7 +70,7 @@ const Login = () => {
   };
 
   return (
-    <div>
+    <div className="p-[2rem]">
       <img src={Logo} className="mb-7" />
       <form onSubmit={handleSubmit}>
         <div>

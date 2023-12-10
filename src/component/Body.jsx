@@ -7,6 +7,7 @@ import Onboard from "./Onboard";
 import SignUp from "./SignUp"
 import Home from "./Home";
 import Detail from "./Detail";
+import City from "./City";
 
 const Body = () => {
   const appRouter = createBrowserRouter([
@@ -29,6 +30,12 @@ const Body = () => {
     {
       path: "/home",
       element: <Home/>,
+      children:[
+        {
+          path:"/view-other-forecast:id",
+          element:<Detail/>
+        }
+      ]
     },
     {
       path: "/sucessfull",
@@ -41,6 +48,10 @@ const Body = () => {
     {
       path: "/detail",
       element: <Detail/>,
+    },
+    {
+      path: "/city",
+      element: <City/>,
     },
   ]);
   return (

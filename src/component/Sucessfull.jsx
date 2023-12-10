@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 
 const Sucessfull = () => {
   return (
-    <div className="flex flex-col justify-center items-center">
+    <div className="flex p-[3rem] flex-col justify-center items-center">
       <div className="flex flex-col">
         <img src={Frame} className="" />
         <img src={Congo} alt="" className=" mb-52" />
