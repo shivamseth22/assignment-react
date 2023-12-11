@@ -58,7 +58,7 @@ const City = ({ cityData, setCityData }) => {
                 
               </div>
               <div>
-              {value.maxTemperature + "/" + value.minTemperature}
+              {value.maxTemperature +"" + "/" + value.minTemperature}
               </div>
               
 

@@ -27,6 +27,7 @@ const Body = () => {
       path: "/loginPage",
       element: <LoginPage />,
     },
+
     {
       path: "/sucessfull",
       element: <Sucessfull />,
