@@ -28,16 +28,6 @@ const Body = () => {
       element: <LoginPage />,
     },
     {
-      path: "/home",
-      element: <Home/>,
-      // children:[
-      //   {
-      //     path:"/detail",
-      //     element:<Detail/>
-      //   }
-      // ]
-    },
-    {
       path: "/sucessfull",
       element: <Sucessfull />,
     },
