@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import Icon from "./Icon";
 import badal from "../assets/badal.png"
+
 const Detail = () => {
   const [myId, setMyId] = useState(null);
   const [localLiveData, setLocalLiveData] = useState(null);
