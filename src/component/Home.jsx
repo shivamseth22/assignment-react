@@ -36,8 +36,7 @@ const Home = () => {
   const MyModel = () => {
     return (
       <div className="bg-white p-12 min-w-[300px] absolute text-black z-10 mt-20  rounded-xl flex flex-col justify-center items-center">
-        {/* <img src="" alt="img" className="m-5 p-5" /> */}
-        {/* <img src={logoutbutton} alt="" className="max-w-[180px]" /> */}
+       
         <h1 className="text-lg font-bold">Log out</h1>
         <p className="my-2">Are you sure want to logout from app</p>
         <div className="flex">
