@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import City from "./City";
 import Icon from "./Icon";
-import logoutbutton from "../assets/logoutbutton.png"
+import logoutButton from "../assets/logoutButton.png";
 
 const Home = () => {
   const [token, setToken] = useState(null);
@@ -36,7 +36,7 @@ const Home = () => {
   const MyModel = () => {
     return (
       <div className="bg-white p-12 min-w-[300px] absolute text-black z-10 mt-20  rounded-xl flex flex-col justify-center items-center">
-       
+        <img src={logoutButton} alt="" className="max-w-[180px]" />
         <h1 className="text-lg font-bold">Log out</h1>
         <p className="my-2">Are you sure want to logout from app</p>
         <div className="flex">
@@ -67,19 +67,20 @@ const Home = () => {
         </h1>
         {cityData && <City cityData={cityData} setCityData={setCityData} />}
         <p className="" onClick={() => setShowModal(true)}>
-          <Icon condition={"power"}/>
+          <Icon condition={"power"} />
         </p>
         {showModel && <MyModel />}
       </div>
-      
-       
+
       <div className="flex justify-center">
-      <div>
-      <Icon condition={"mainCloud"}/>
-      </div>
+        <div>
+          <Icon condition={"mainCloud"} />
+        </div>
         <div className="absolute mt-36 mx-auto min-w-[350px] flex flex-col  ">
           <p className="p-2">Today, {localLiveData?.time}</p>
-          <h1 className="text-8xl p-2 font-semibold">{localLiveData?.temperature}</h1>
+          <h1 className="text-8xl p-2 font-semibold">
+            {localLiveData?.temperature}
+          </h1>
           <p className="text-lg p-2">{localLiveData?.condition}</p>
           <div className="flex justify-evenly  p-2">
             <div>Time</div>
@@ -110,7 +111,10 @@ const Home = () => {
             <div></div>
           </div>
           <Link to="/detail">
-            <button className="m-3 p-3 px-8 bg-white text-blue-700 rounded-xl "> Forecast report</button>
+            <button className="m-3 p-3 px-8 bg-white text-blue-700 rounded-xl ">
+              {" "}
+              Forecast report
+            </button>
           </Link>
         </div>
       </div>
