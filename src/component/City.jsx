@@ -1,4 +1,5 @@
 import React, { useEffect, useRef ,useState } from "react";
+import Search  from "../assets/search.png";
 
 
 
@@ -51,11 +52,9 @@ const City = ({cityData , setCityData}) => {
       MyFetch();
   },[]);
   return (
-    <div  ref={myRef} className="p-[3rem] flex flex-col gap-5 absolute bg-white mt-12 text-black myCityData z-10 ml-8 rounde">
-      <div className="flex bg-red-300 items-center justify-center ">
-        <p >X</p>
-        <input type="text" className="bg-gray-400" />
-        <p>M</p>
+    <div  ref={myRef} className="p-[3rem] flex flex-col gap-5 absolute bg-white mt-12 text-black myCityData z-10  rounded-2xl">
+      <div className="flex items-center justify-center ">
+        <img src={Search} alt="" className="max-w-[250px]" />
       </div>
       <div>
         {cityList?.map((data)=>{
