@@ -2,10 +2,23 @@ import React, { useEffect, useRef ,useState } from "react";
 
 
 
+const CityName =({name, minTemprature , maxTemprature})=>{
+  console.log(name);
+
+  return(
+    <>
+      <h1>{name}</h1>
+    </>
+  )
+}
+
+
+
 
 const City = ({cityData , setCityData}) => {
 
   const [cityList, setCityList] = useState();
+
 
   const myRef = useRef(null);
   useEffect(()=>{
@@ -44,33 +57,15 @@ const City = ({cityData , setCityData}) => {
         <input type="text" className="bg-gray-400" />
         <p>M</p>
       </div>
-      <div className="flex justify-around">
-      <p>banglere</p>
-      <p>34/23</p>
+      <div>
+        {cityList?.map((data)=>{
 
+          <div>
+           
+            <CityName {...data}/>
+          </div>
+        })}
       </div>
-      <div className="flex justify-around">
-      <p>banglere</p>
-      <p>34/23</p>
-
-      </div><div className="flex justify-around">
-      <p>banglere</p>
-      <p>34/23</p>
-
-      </div><div className="flex justify-around">
-      <p>banglere</p>
-      <p>34/23</p>
-
-      </div><div className="flex justify-around">
-      <p>banglere</p>
-      <p>34/23</p>
-
-      </div><div className="flex justify-around">
-      <p>banglere</p>
-      <p>34/23</p>
-
-      </div>
-      
     </div>
   );
 };

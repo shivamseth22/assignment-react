@@ -35,7 +35,7 @@ const Detail = () => {
   }, [myId]);
 
   return (
-    <div className="flex flex-col gap-7 p-[3rem] bg-blue-400 min-h-[800px]">
+    <div className="flex flex-col gap-7 p-[3rem] bg-blue-400 min-h-[]">
       <Link to="/home">
         {" "}
         <button className="flex text-white text-lg font-bold">Back</button>
@@ -86,35 +86,37 @@ const Detail = () => {
         <p className="text-lg font-bold">NextForecast</p>
         <p className="text-lg font-bold">DD</p>
       </div>
-      <div className="flex justify-around mt-5">
-        <p>x</p>
+
+    
+      <div className="flex justify-around text-white">
+        <p className="text-lg ">Sep, 13</p>
         <p>y</p>
-        <p>z</p>
+        <p>21</p>
       </div>
-      <div className="flex justify-around">
-        <p>x</p>
+      <div className="flex justify-around text-white">
+        <p className="text-lg ">Sep, 13</p>
         <p>y</p>
-        <p>z</p>
+        <p>22</p>
       </div>
-      <div className="flex justify-around">
-        <p>x</p>
+      <div className="flex justify-around text-white">
+        <p className="text-lg ">Sep, 13</p>
         <p>y</p>
-        <p>z</p>
+        <p>34</p>
       </div>
-      <div className="flex justify-around">
-        <p>x</p>
+      <div className="flex justify-around text-white">
+        <p className="text-lg ">Sep, 13</p>
         <p>y</p>
-        <p>z</p>
+        <p>27</p>
       </div>
-      <div className="flex justify-around">
-        <p>x</p>
+      <div className="flex justify-around text-white">
+        <p className="text-lg ">Sep, 13</p>
         <p>y</p>
-        <p>z</p>
+        <p>32</p>
       </div>
-      <div className="flex justify-around">
-        <p>x</p>
+      <div className="flex justify-around text-white">
+        <p className="text-lg ">Sep, 13</p>
         <p>y</p>
-        <p>z</p>
+        <p>25</p>
       </div>
     </div>
   );
