@@ -35,19 +35,19 @@ const Detail = () => {
   }, [myId]);
 
   return (
-    <div className="flex flex-col gap-7 p-[3rem]">
+    <div className="flex flex-col gap-7 p-[3rem] bg-blue-400 min-h-[800px]">
       <Link to="/home">
         {" "}
-        <button className="flex ">Back</button>
+        <button className="flex text-white text-lg font-bold">Back</button>
       </Link>
       <div className="flex justify-around">
-        <p>Today</p>
-        <p>sep 12</p>
+        <p className="text-white text-lg font-bold">Today</p>
+        <p className="text-white text-lg font-bold">sep 12</p>
         {/* <p>{apiData.Data[0].}</p> */}
       </div>
       {apiData?.map((data) => {
         return (
-          <div key={Math.random()} className="flex">
+          <div key={Math.random()} className="flex text-white -ml-5">
             <div>
               <h1>{data?.data1?.time}</h1>
               <Icon condition={"sunny"} />
@@ -74,19 +74,19 @@ const Detail = () => {
               <p>{data?.data5?.temperature}</p>
             </div>
             <div>
-              <h1>{data?.data1?.time}</h1>
+              <h1>{data?.data6?.time}</h1>
               <Icon condition={"sunny"} />
-              <p>{data?.data1?.temperature}</p>
+              <p>{data?.data6?.temperature}</p>
             </div>
           </div>
         );
       })}
 
-      <div className="flex justify-around">
-        <p>nextForecast</p>
-        <p>dd</p>
+      <div className="flex justify-around text-white mt-5">
+        <p className="text-lg font-bold">NextForecast</p>
+        <p className="text-lg font-bold">DD</p>
       </div>
-      <div className="flex justify-around">
+      <div className="flex justify-around mt-5">
         <p>x</p>
         <p>y</p>
         <p>z</p>

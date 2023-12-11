@@ -1,6 +1,12 @@
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useRef ,useState } from "react";
+
+
+
 
 const City = ({cityData , setCityData}) => {
+
+  const [cityList, setCityList] = useState();
+
   const myRef = useRef(null);
   useEffect(()=>{
     const eventHandler = (e) =>{
@@ -14,8 +20,25 @@ const City = ({cityData , setCityData}) => {
     }
     document.addEventListener('mousedown', eventHandler)
   },[])
+
+  const MyFetch = async ()=>{
+    const token = JSON.parse(localStorage.getItem("myToken"));
+    const response = await fetch(`https://hiring-test.a2dweb.com/city-list/`,{
+      headers: {
+        Accept: "application/json",
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${token}`,
+      },
+    })
+    const data = await response.json();
+    console.log(data.list);
+    setCityList(data.list);
+  }
+  useEffect(()=>{
+      MyFetch();
+  },[]);
   return (
-    <div  ref={myRef} className="p-[3rem] flex flex-col gap-5 absolute bg-white mt-12 text-black myCityData z-10">
+    <div  ref={myRef} className="p-[3rem] flex flex-col gap-5 absolute bg-white mt-12 text-black myCityData z-10 ml-8">
       <div className="flex bg-red-300 items-center justify-center ">
         <p >X</p>
         <input type="text" className="bg-gray-400" />
