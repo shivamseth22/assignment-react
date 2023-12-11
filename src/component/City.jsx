@@ -18,7 +18,7 @@ const CityName =({name, minTemprature , maxTemprature})=>{
 const City = ({cityData , setCityData}) => {
 
   const [cityList, setCityList] = useState();
-
+ cons
 
   const myRef = useRef(null);
   useEffect(()=>{
