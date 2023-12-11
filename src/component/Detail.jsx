@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import Icon from "./Icon";
+import badal from "../assets/badal.png"
 const Detail = () => {
   const [myId, setMyId] = useState(null);
   const [localLiveData, setLocalLiveData] = useState(null);
@@ -88,34 +89,34 @@ const Detail = () => {
       </div>
 
     
-      <div className="flex justify-around text-white">
+      <div className="flex justify-around text-white items-center">
         <p className="text-lg ">Sep, 13</p>
-        <p>y</p>
+        <img src={badal} alt="" className="-m-10"/>
         <p>21</p>
       </div>
-      <div className="flex justify-around text-white">
+      <div className="flex justify-around text-white items-center">
         <p className="text-lg ">Sep, 13</p>
-        <p>y</p>
+        <img src={badal} alt="" className="-m-10"/>
         <p>22</p>
       </div>
-      <div className="flex justify-around text-white">
+      <div className="flex justify-around text-white items-center">
         <p className="text-lg ">Sep, 13</p>
-        <p>y</p>
+        <img src={badal} alt="" className="-m-10"/>
         <p>34</p>
       </div>
-      <div className="flex justify-around text-white">
+      <div className="flex justify-around text-white items-center">
         <p className="text-lg ">Sep, 13</p>
-        <p>y</p>
+        <img src={badal} alt="" className="-m-10"/>
         <p>27</p>
       </div>
-      <div className="flex justify-around text-white">
+      <div className="flex justify-around text-white items-center">
         <p className="text-lg ">Sep, 13</p>
-        <p>y</p>
+        <img src={badal} alt="" className="-m-10"/>
         <p>32</p>
       </div>
-      <div className="flex justify-around text-white">
+      <div className="flex justify-around text-white items-center">
         <p className="text-lg ">Sep, 13</p>
-        <p>y</p>
+        <img src={badal} alt="" className="-m-10"/>
         <p>25</p>
       </div>
     </div>
