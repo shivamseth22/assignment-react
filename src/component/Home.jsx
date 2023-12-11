@@ -62,12 +62,12 @@ const Home = () => {
   return (
     <div className=" flex flex-col gap-7 p-[2rem] bg-blue-400 h-[800px] text-white">
       <div className="flex justify-between ">
-        <h1 className="text-xl font-bold cursor-help " onClick={() => setCityData(true)}>
+        <h1 className="text-xl font-bold cursor-pointer " onClick={() => setCityData(true)}>
           Semarang
         </h1>
         {cityData && <City cityData={cityData} setCityData={setCityData} />}
-        <p className="" onClick={() => setShowModal(true)}>
-          <Icon condition={"power"} />
+        <p className="cursor-pointer" onClick={() => setShowModal(true)} >
+          <Icon condition={"power"}  />
         </p>
         {showModel && <MyModel />}
       </div>

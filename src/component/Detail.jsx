@@ -40,7 +40,7 @@ const Detail = () => {
     <div className="flex flex-col gap-7 p-[3rem] bg-blue-400 min-h-[]">
       <Link to="/">
         {" "}
-        <button className="flex text-white text-lg font-bold">Back</button>
+        <button className="flex text-white text-lg font-bold cursor-pointer">Back</button>
       </Link>
       <div className="flex justify-around">
         <p className="text-white text-lg font-bold">Today</p>
