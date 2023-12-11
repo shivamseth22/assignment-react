@@ -38,7 +38,7 @@ const Detail = () => {
 
   return (
     <div className="flex flex-col gap-7 p-[3rem] bg-blue-400 min-h-[]">
-      <Link to="/home">
+      <Link to="/">
         {" "}
         <button className="flex text-white text-lg font-bold">Back</button>
       </Link>
